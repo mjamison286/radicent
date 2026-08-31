@@ -1,3 +1,5 @@
+#pragma once
+
 //header files (should not have any std headers, only ones that I make)
 #include "io.hpp"
 #include "log.hpp"
