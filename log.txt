@@ -1,0 +1,1 @@
+WARNING: Editor opened without file, make sure to save!
