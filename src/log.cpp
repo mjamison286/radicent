@@ -1,5 +1,3 @@
-#pragma once
-
 #include "log.hpp"
 
 void logFatal(std::string str)

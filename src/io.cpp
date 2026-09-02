@@ -1,5 +1,3 @@
-#pragma once
-
 #include "io.hpp"
 #include "log.hpp"
 
@@ -37,6 +35,7 @@ std::string readFromFile(std::string path)
 {
     std::ifstream file(path);
 
+    std::string temp;
     std::string content;
 
     if(!file)
@@ -47,7 +46,10 @@ std::string readFromFile(std::string path)
 
     //logVerbose("The input file opened.");
 
-    file >> content;
+    while(getline(file, temp))
+    {
+        content += ("\n" + temp);
+    }
 
     file.close();
 
