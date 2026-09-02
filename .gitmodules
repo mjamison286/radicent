@@ -1,0 +1,6 @@
+[submodule "vndr/imgui"]
+	path = vndr/imgui
+	url = https://github.com/ocornut/imgui
+[submodule "vndr/glfw"]
+	path = vndr/glfw
+	url = https://github.com/glfw/glfw
