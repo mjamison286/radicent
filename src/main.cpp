@@ -5,7 +5,7 @@
 
 int main(int argc, char* argv[])
 {
-    GLFWwindow* window;
+    GLFWwindow* window = nullptr;
 
     initGui(&window);
 
