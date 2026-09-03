@@ -1,58 +1,24 @@
-//header files (should not have any std headers, only ones that I make)
+//header files (should not include any std headers, only ones I made.)
 #include "io.hpp"
 #include "log.hpp"
-
-//global variables
-std::string filePath;
-std::string outputFilePath;
+#include "gui.hpp"
 
 int main(int argc, char* argv[])
 {
-    std::cout << "argc: " << argc << std::endl;
-    if(argc != 1)
+    GLFWwindow* window;
+
+    initGui(&window);
+
+    while(glfwWindowShouldClose(window))
     {
-        for(int i = 0; i < argc; i++)
+        glfwPollEvents();
+
+        if(glfwGetWindowAttrib(window, GLFW_ICONIFIED) != 0)
         {
-            std::string arg = argv[i];
-            if(arg == "-i")
-            {
-                if(argc - 1 == i)
-                {
-                    logFatal("There needs to be an input path AFTER the input flag (-i).");
-                }
-
-                filePath = argv[i + 1];
-            }
-            else if(arg == "-o")
-            {
-                if(argc - 1 == i)
-                {
-                    logFatal("There needs to be an output path AFTER the output flag (-o).");
-                }
-
-                outputFilePath = argv[i + 1];
-            }
+            ImGui_ImplGlfw_Sleep(10);
+            continue;
         }
     }
-    else 
-    {
-        logWarning("Editor opened without file, make sure to save!");
-        
-        std::string path = writeToUnknownPath("hello");
-
-        std::cout << "The file reads: " << readFromFile(path);
-
-        return 0;
-    }
-
-    if(filePath == "")
-    {
-        logFatal("There is no file path.");
-    }
-
-    writeToFile("hello", filePath);
-
-    std::cout << "The file reads: " << readFromFile(filePath) << std::endl;
 
     return 0;
 }

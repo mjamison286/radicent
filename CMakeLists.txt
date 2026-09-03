@@ -6,6 +6,8 @@ include_directories(
     vndr/glfw/include
     vndr/imgui
     vndr/imgui/backends
+
+    src/include
 )
 
 add_subdirectory(./vndr/glfw glfw)
@@ -25,6 +27,7 @@ add_executable(radicent
     src/main.cpp
     src/io.cpp
     src/log.cpp
+    src/gui.cpp
 )
 
 target_link_libraries(radicent glfw)

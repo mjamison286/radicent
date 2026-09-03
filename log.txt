@@ -1,0 +1,1 @@
+LOG: Successfully created the window!
