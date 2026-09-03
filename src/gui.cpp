@@ -1,6 +1,6 @@
 #include "gui.hpp"
 
-bool setupGLFW(GLFWwindow* window)
+bool setupGLFW(GLFWwindow** window)
 {
     if(!glfwInit())
     {
@@ -13,7 +13,7 @@ bool setupGLFW(GLFWwindow* window)
 
     float mainMonitorScale = ImGui_ImplGlfw_GetContentScaleForMonitor(glfwGetPrimaryMonitor());
 
-    window = glfwCreateWindow((int)(1280 * mainMonitorScale), (int)(800 * mainMonitorScale), "radicent", nullptr, nullptr);
+    *window = glfwCreateWindow((int)(1280 * mainMonitorScale), (int)(800 * mainMonitorScale), "radicent", nullptr, nullptr);
 
     if(window == nullptr)
     {
@@ -21,13 +21,13 @@ bool setupGLFW(GLFWwindow* window)
         return false;
     }
 
-    glfwMakeContextCurrent(window);
+    glfwMakeContextCurrent(*window);
     glfwSwapInterval(1);
 
     return true;
 }
 
-bool setupImGui(GLFWwindow* window)
+bool setupImGui(GLFWwindow** window)
 {
     IMGUI_CHECKVERSION();
 
@@ -44,25 +44,20 @@ bool setupImGui(GLFWwindow* window)
 
     ImGui::StyleColorsDark();
 
-    ImGui_ImplGlfw_InitForOpenGL(window, true);
+    ImGui_ImplGlfw_InitForOpenGL(*window, true);
     ImGui_ImplOpenGL3_Init();
-
-    ImGui_ImplOpenGL3_NewFrame();
-    ImGui_ImplGlfw_NewFrame();
-
-    ImGui::NewFrame();
 
     return true;
 }
 
 void initGui(GLFWwindow** window)
 {
-    if(!setupGLFW(*window))
+    if(!setupGLFW(window))
     {
         logFatal("GLFW failed to set up.");
     }
 
-    if(!setupImGui(*window))
+    if(!setupImGui(window))
     {
         logFatal("ImGui failed to set up.");
     }

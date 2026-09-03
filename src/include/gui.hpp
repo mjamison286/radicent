@@ -7,8 +7,8 @@
 
 #include "log.hpp"
 
-bool setupGLFW();
+bool setupGLFW(GLFWwindow** window);
 
-bool setupImGui();
+bool setupImGui(GLFWwindow** window);
 
 void initGui(GLFWwindow** window);

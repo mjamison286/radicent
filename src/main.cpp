@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
 
     initGui(&window);
 
-    while(glfwWindowShouldClose(window))
+    while(!glfwWindowShouldClose(window))
     {
         glfwPollEvents();
 
@@ -18,6 +18,13 @@ int main(int argc, char* argv[])
             ImGui_ImplGlfw_Sleep(10);
             continue;
         }
+
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
+
+        ImGui::NewFrame();
+
+        ImGui::EndFrame();
     }
 
     return 0;
