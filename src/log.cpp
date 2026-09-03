@@ -2,7 +2,7 @@
 
 void logFatal(std::string str)
 {
-    std::ofstream file("../log.txt");
+    std::ofstream file("../test/log.txt");
 
     file << "FATAL: " << str << std::endl;
     file.close();
@@ -14,7 +14,7 @@ void logFatal(std::string str)
 
 void logWarning(std::string str)
 {
-    std::ofstream file("../log.txt");
+    std::ofstream file("../test/log.txt");
 
     file << "WARNING: " << str << std::endl;
     file.close();
@@ -24,7 +24,7 @@ void logWarning(std::string str)
 
 void logVerbose(std::string str)
 {
-    std::ofstream file("../log.txt");
+    std::ofstream file("../test/log.txt");
 
     file << "LOG: " << str << std::endl;
     file.close();
