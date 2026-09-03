@@ -1,5 +1,6 @@
 #pragma once
 
+#include "glad/glad.h"
 #include <GLFW/glfw3.h>
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
@@ -12,3 +13,5 @@ bool setupGLFW(GLFWwindow** window);
 bool setupImGui(GLFWwindow** window);
 
 void initGui(GLFWwindow** window);
+
+bool renderGui(GLFWwindow** window);

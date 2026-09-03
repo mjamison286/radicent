@@ -15,7 +15,7 @@ bool setupGLFW(GLFWwindow** window)
 
     *window = glfwCreateWindow((int)(1280 * mainMonitorScale), (int)(800 * mainMonitorScale), "radicent", nullptr, nullptr);
 
-    if(window == nullptr)
+    if(*window == nullptr)
     {
         logFatal("GLFW failed to create the window.");
         return false;
@@ -23,6 +23,12 @@ bool setupGLFW(GLFWwindow** window)
 
     glfwMakeContextCurrent(*window);
     glfwSwapInterval(1);
+
+    if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    {
+        logFatal("Failed to initialize glad.");
+        return false;
+    }
 
     return true;
 }
@@ -61,4 +67,22 @@ void initGui(GLFWwindow** window)
     {
         logFatal("ImGui failed to set up.");
     }
+}
+
+bool renderGui(GLFWwindow** window)
+{
+    int displayWidth;
+    int displayHeight;
+
+    ImGui::Render();
+
+    glfwGetFramebufferSize(*window, &displayWidth, &displayHeight);
+    glViewport(0, 0, displayWidth, displayHeight);
+    
+    glClear(GL_COLOR_BUFFER_BIT);
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+    glfwSwapBuffers(*window);
+
+    return true;
 }
