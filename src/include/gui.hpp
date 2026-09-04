@@ -15,3 +15,5 @@ bool setupImGui(GLFWwindow** window);
 void initGui(GLFWwindow** window);
 
 bool renderGui(GLFWwindow** window);
+
+void cleanupGui(GLFWwindow** window);

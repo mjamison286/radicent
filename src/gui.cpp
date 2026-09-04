@@ -71,6 +71,17 @@ void initGui(GLFWwindow** window)
 
 bool renderGui(GLFWwindow** window)
 {
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplGlfw_NewFrame();
+
+    ImGui::NewFrame();
+
+    ImGui::Begin("radicent text editor");
+
+    ImGui::Text("this is the future application site of a text editor written entirely by my own hands.");
+
+    ImGui::End();
+
     int displayWidth;
     int displayHeight;
 
@@ -85,4 +96,14 @@ bool renderGui(GLFWwindow** window)
     glfwSwapBuffers(*window);
 
     return true;
+}
+
+void cleanupGui(GLFWwindow** window)
+{
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplGlfw_Shutdown();
+    ImGui::DestroyContext();
+
+    glfwDestroyWindow(*window);
+    glfwTerminate();
 }

@@ -19,26 +19,10 @@ int main(int argc, char* argv[])
             continue;
         }
 
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-
-        ImGui::NewFrame();
-
-        ImGui::Begin("radicent text editor");
-
-        ImGui::Text("this is the future application site of a text editor written entirely by my own hands.");
-
-        ImGui::End();
-
         renderGui(&window);
     }
 
-    ImGui_ImplOpenGL3_Shutdown();
-    ImGui_ImplGlfw_Shutdown();
-    ImGui::DestroyContext();
-
-    glfwDestroyWindow(window);
-    glfwTerminate();
+    cleanupGui(&window);
 
     return 0;
 }
