@@ -69,6 +69,7 @@ Testing/
 .cache/
 test/
 log.txt
+imgui.ini
 
 # editor specific
 .vscode/
