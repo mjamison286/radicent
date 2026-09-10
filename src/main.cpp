@@ -31,8 +31,8 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
 
     if(key == GLFW_KEY_S && action == GLFW_PRESS && ctrlPressed)
     {
-        logVerbose("saved file");
-        writeToFile("placeholder", inputPath);
+        //logVerbose("saved file");
+        //writeToFile("placeholder", inputPath);
     }
 
     if(!(key == GLFW_KEY_LEFT_CONTROL || key == GLFW_KEY_RIGHT_CONTROL) && action != GLFW_PRESS)
@@ -63,7 +63,7 @@ int main(int argc, char* argv[])
             continue;
         }
 
-        renderGui(&window);
+        renderGui(&window, inputPath);
 
         glfwPollEvents();
     }

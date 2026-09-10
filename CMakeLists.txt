@@ -31,4 +31,3 @@ add_executable(radicent
 )
 
 target_link_libraries(radicent glfw)
-

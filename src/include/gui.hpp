@@ -14,6 +14,6 @@ bool setupImGui(GLFWwindow** window);
 
 void initGui(GLFWwindow** window);
 
-bool renderGui(GLFWwindow** window);
+bool renderGui(GLFWwindow** window, std::string inputPath);
 
 void cleanupGui(GLFWwindow** window);

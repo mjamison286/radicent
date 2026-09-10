@@ -1,4 +1,5 @@
 #include "gui.hpp"
+#include "io.hpp"
 
 bool setupGLFW(GLFWwindow** window)
 {
@@ -69,7 +70,7 @@ void initGui(GLFWwindow** window)
     }
 }
 
-bool renderGui(GLFWwindow** window)
+bool renderGui(GLFWwindow** window, std::string inputPath)
 {
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
@@ -77,6 +78,23 @@ bool renderGui(GLFWwindow** window)
     ImGui::NewFrame();
 
     ImGui::Begin("radicent text editor");
+    
+    if(ImGui::BeginMainMenuBar())
+    {
+        if(ImGui::BeginMenu("File"))
+        {
+            if(ImGui::MenuItem("Open")){}
+            if(ImGui::MenuItem("Save", "Ctrl+S"))
+            {
+                logVerbose("saved to file");
+                writeToFile("placeholder", inputPath);
+            }
+            if(ImGui::MenuItem("Close", "Ctrl+W")){}
+            
+            ImGui::EndMenu();
+        }
+        ImGui::EndMainMenuBar();
+    }
 
     ImGui::Text("this is the future application site of a text editor written entirely by my own hands.");
 
