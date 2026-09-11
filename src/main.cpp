@@ -23,16 +23,10 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
         glfwSetWindowShouldClose(window, GL_TRUE);
     }
 
-    #pragma region "Control Modifiers"
+    #pragma region "Control Key Modifiers"
     if((key == GLFW_KEY_LEFT_CONTROL || key == GLFW_KEY_RIGHT_CONTROL) && action == GLFW_PRESS)
     {
         ctrlPressed = true;
-    }
-
-    if(key == GLFW_KEY_S && action == GLFW_PRESS && ctrlPressed)
-    {
-        //logVerbose("saved file");
-        //writeToFile("placeholder", inputPath);
     }
 
     if(!(key == GLFW_KEY_LEFT_CONTROL || key == GLFW_KEY_RIGHT_CONTROL) && action != GLFW_PRESS)

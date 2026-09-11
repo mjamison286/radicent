@@ -29,7 +29,9 @@ IOData processCLI(int argc, char **argv)
 
     if(data.input == "")
     {
-        logFatal("Did not provide an input path.");
+        data.input = "./current.txt";
+
+        logWarning("Opened without input path, swapped to default path.");
     }
 
     if(data.output == "")
