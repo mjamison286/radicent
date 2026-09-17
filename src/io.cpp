@@ -1,47 +1,44 @@
 #include "io.hpp"
-#include "log.hpp"
 
-struct IOData
+void processCLI(int argc, char **argv)
 {
-    std::string input;
-    std::string output;
-};
-
-IOData processCLI(int argc, char **argv)
-{
-    IOData data;
+    isVerbose = false;
 
     for(int i = 0; i < argc; i++)
     {
+        std::string arg = argv[i];
         if(i + 1 != argc)
         {
-            std::string arg = argv[i];
             if(arg == "-i")
             {
-                data.input = argv[i + 1];
+                inputPath = argv[i + 1];
             }
             else if(arg == "-o")
             {
-                data.output = argv[i + 1];
+                outputPath = argv[i + 1];
             }
+        }
+
+        if(arg == "-v")
+        {
+            isVerbose = true;
+            logVerbose("Verbose mode set to true.");
         }
     }
 
-    if(data.input == "")
+    if(inputPath == "")
     {
-        data.input = "./current.txt";
+        inputPath = "./current.txt";
 
         logWarning("Opened without input path, swapped to default path.");
     }
 
-    if(data.output == "")
+    if(outputPath == "")
     {
-        data.output = data.input;
+        outputPath = inputPath;
 
         logWarning("Output path not received, set path to input.");
     }
-
-    return data;
 }
 
 void writeToFile(std::string content, std::string path)
@@ -53,7 +50,10 @@ void writeToFile(std::string content, std::string path)
         logFatal("The output file failed to open.");
     }
 
-    //logVerbose("output filed opened.");
+    if(isVerbose)
+    {
+        logVerbose("output filed opened.");
+    }
 
     file << content;
 
@@ -86,7 +86,10 @@ std::string readFromFile(std::string path)
         return "";
     }
 
-    //logVerbose("The input file opened.");
+    if(isVerbose)
+    {
+        logVerbose("The input file opened.");
+    }
 
     while(getline(file, temp))
     {

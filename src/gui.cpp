@@ -1,5 +1,4 @@
 #include "gui.hpp"
-#include "io.hpp"
 
 bool setupGLFW(GLFWwindow** window)
 {
@@ -70,7 +69,7 @@ void initGui(GLFWwindow** window)
     }
 }
 
-bool renderGui(GLFWwindow** window, std::string inputPath)
+bool renderGui(GLFWwindow** window)
 {
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
@@ -83,13 +82,25 @@ bool renderGui(GLFWwindow** window, std::string inputPath)
     {
         if(ImGui::BeginMenu("File"))
         {
-            if(ImGui::MenuItem("Open")){}
+            if(ImGui::MenuItem("Open"))
+            {
+
+            }
+
             if(ImGui::MenuItem("Save", "Ctrl+S"))
             {
-                logVerbose("saved to file");
+                if(isVerbose)
+                {
+                    logVerbose("saved to file");
+                }
+                
                 writeToFile("placeholder", inputPath);
             }
-            if(ImGui::MenuItem("Close", "Ctrl+W")){}
+
+            if(ImGui::MenuItem("Close", "Ctrl+W"))
+            {
+
+            }
             
             ImGui::EndMenu();
         }

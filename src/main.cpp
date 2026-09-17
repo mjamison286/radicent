@@ -2,10 +2,7 @@
 #include "io.hpp"
 #include "log.hpp"
 #include "gui.hpp"
-
-//global vars for working directory and whatnot.
-static std::string inputPath;
-static std::string outputPath;
+#include "global.hpp"
 
 //modifier keys for keycallback
 static bool ctrlPressed = false;
@@ -38,10 +35,7 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
 
 int main(int argc, char* argv[])
 { 
-    IOData data = processCLI(argc, argv);
-
-    inputPath = data.input;
-    outputPath = data.output;
+    processCLI(argc, argv);
 
     GLFWwindow* window = nullptr;
 
@@ -57,7 +51,7 @@ int main(int argc, char* argv[])
             continue;
         }
 
-        renderGui(&window, inputPath);
+        renderGui(&window);
 
         glfwPollEvents();
     }

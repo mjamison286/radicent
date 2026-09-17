@@ -4,9 +4,10 @@
 #include <iostream>
 #include <fstream>
 
-struct IOData;
+#include "log.hpp"
+#include "global.hpp"
 
-IOData processCLI(int argc, char** argv);
+void processCLI(int argc, char** argv);
 
 void writeToFile(std::string content, std::string path);
 

@@ -7,6 +7,8 @@
 #include "imgui_impl_opengl3.h"
 
 #include "log.hpp"
+#include "io.hpp"
+#include "global.hpp"
 
 bool setupGLFW(GLFWwindow** window);
 
@@ -14,6 +16,6 @@ bool setupImGui(GLFWwindow** window);
 
 void initGui(GLFWwindow** window);
 
-bool renderGui(GLFWwindow** window, std::string inputPath);
+bool renderGui(GLFWwindow** window);
 
 void cleanupGui(GLFWwindow** window);
