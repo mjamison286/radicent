@@ -4,10 +4,10 @@
 #include <string>
 
 // vars to be externed
-extern std::string inputPath;
-extern std::string outputPath;
+static std::string inputPath;
+static std::string outputPath;
 
-extern bool isSaved;
-extern bool isVerbose;
+static bool isSaved;
+static bool isVerbose;
 
 // functions to be externed

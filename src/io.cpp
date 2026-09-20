@@ -47,7 +47,7 @@ void writeToFile(std::string content, std::string path)
 
     if(!file)
     {
-        logFatal("The output file failed to open.");
+        logFatal("The output file failed to open when attempting to write to file.");
     }
 
     if(isVerbose)

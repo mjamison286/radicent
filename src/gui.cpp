@@ -84,7 +84,7 @@ bool renderGui(GLFWwindow** window)
         {
             if(ImGui::MenuItem("Open"))
             {
-
+                
             }
 
             if(ImGui::MenuItem("Save", "Ctrl+S"))
