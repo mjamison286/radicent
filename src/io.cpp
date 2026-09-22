@@ -58,6 +58,11 @@ void writeToFile(std::string content, std::string path)
     file << content;
 
     file.close();
+
+    if(isVerbose)
+    {
+        logVerbose("saved to file");
+    }
 }
 
 std::string writeToUnknownPath(std::string content)

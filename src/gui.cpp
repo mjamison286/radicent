@@ -88,12 +88,7 @@ bool renderGui(GLFWwindow** window)
             }
 
             if(ImGui::MenuItem("Save", "Ctrl+S"))
-            {
-                if(isVerbose)
-                {
-                    logVerbose("saved to file");
-                }
-                
+            {                
                 writeToFile("placeholder", inputPath);
             }
 
