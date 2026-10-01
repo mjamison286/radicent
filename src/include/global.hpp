@@ -7,7 +7,8 @@
 static std::string inputPath;
 static std::string outputPath;
 
-static bool isSaved;
-static bool isVerbose;
+extern bool isSaved;
+extern bool isVerbose;
+extern bool debugMode;
 
 // functions to be externed

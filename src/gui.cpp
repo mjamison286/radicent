@@ -1,5 +1,8 @@
 #include "gui.hpp"
 
+bool showdemowindow = false;
+
+
 bool setupGLFW(GLFWwindow** window)
 {
     if(!glfwInit())
@@ -84,7 +87,7 @@ bool renderGui(GLFWwindow** window)
         {
             if(ImGui::MenuItem("Open"))
             {
-                
+
             }
 
             if(ImGui::MenuItem("Save", "Ctrl+S"))
@@ -99,10 +102,26 @@ bool renderGui(GLFWwindow** window)
             
             ImGui::EndMenu();
         }
+
         ImGui::EndMainMenuBar();
     }
 
     ImGui::Text("this is the future application site of a text editor written entirely by my own hands.");
+
+    if(debugMode)
+    {
+        ImGui::ShowDemoWindow();
+    }
+
+    if(ImGui::Button("open demo"))
+    {
+        showdemowindow = true;
+    }
+
+    if(showdemowindow)
+    {
+        ImGui::ShowDemoWindow();
+    }
 
     ImGui::End();
 

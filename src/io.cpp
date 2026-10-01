@@ -1,8 +1,12 @@
 #include "io.hpp"
 
+bool isVerbose;
+bool debugMode;
+
 void processCLI(int argc, char **argv)
 {
     isVerbose = false;
+    debugMode = false;
 
     for(int i = 0; i < argc; i++)
     {
@@ -23,6 +27,12 @@ void processCLI(int argc, char **argv)
         {
             isVerbose = true;
             logVerbose("Verbose mode set to true.");
+        }
+
+        if(arg == "-d")
+        {
+            debugMode = true;
+            logVerbose("Opened the program with debug mode enabled.");
         }
     }
 
