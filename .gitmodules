@@ -4,3 +4,6 @@
 [submodule "vndr/glfw"]
 	path = vndr/glfw
 	url = https://github.com/glfw/glfw
+[submodule "vndr/freetype"]
+	path = vndr/freetype
+	url = https://gitlab.freedesktop.org/freetype/freetype.git
