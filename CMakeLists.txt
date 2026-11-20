@@ -6,6 +6,7 @@ include_directories(
     vndr/glfw/include
     vndr/imgui
     vndr/imgui/backends
+    vndr/freetype/include
 
     src/include
 )
